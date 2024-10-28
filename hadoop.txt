@@ -1,0 +1,14 @@
+hadoop version
+hdfs dfs -ls /
+hadoop fs -ls /
+hdfs dfs -mkdir /43_Aditya
+hdfs -copyFromLocal /home/cloudera/Desktop/43_Aditya.txt /43_Aditya/
+hdfs dfs -cat /43_Aditya/43_Aditya.txt
+hdfs dfs -put /home/cloudera/Desktop/43_Aditya.txt /
+hdfs dfs -get /43_Aditya/43_Aditya.txt /home/cloudera/Desktop/43_Aditya/
+hdfs dfs -rm /43_Aditya/test.txt
+hdfs dfs -moveFromLocal /home/cloudera/Desktop/43_Aditya/moveFromLocal.txt /43_Aditya/
+hdfs dfs -moveToLocal /43_Aditya/moveFromLocal.txt /home/cloudera/Desktop/43_Aditya/
+hdfs dfs -cp /43_Aditya/43_Aditya.txt /43_Aditya/CopyTest/
+hdfs dfs -mv /43_Aditya/43_Aditya.txt /43_Aditya/MoveTest/
+hdfs dfs -setrep 2 /43_Aditya/43_Aditya.txt
