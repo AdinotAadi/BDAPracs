@@ -1,0 +1,32 @@
+// MySQL:
+mysql -u root -pcloudera
+show databases;
+
+
+// Sqoop:
+sqoop list-databases --connect jdbc:mysql://quickstart:3306/ --password cloudera --username root
+sqoop list-tables --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root
+sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments;
+
+
+// Hadoop:
+hdfs dfs -ls departments
+hdfs dfs -cat /user/cloudera/departments/part*
+
+
+// MySQL:
+show tables;
+select * from departments;
+
+
+// Sqoop:
+sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments --target-dir /user/cloudera/departments_43
+
+
+// Hadoop:
+hdfs dfs -cat /user/cloudera/department_43/part*
+
+
+// Sqoop:
+sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments --where department_id>4 --target-dir /user/cloudera/department_2_43
+sqoop export --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table dept --export-dir /user/cloudera/department_2;
