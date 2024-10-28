@@ -11,12 +11,12 @@ edges <- c(1, 2, 1, 3, 1, 8,
 
 g <- graph(edges = edges, directed = FALSE)
 
-plot(g, vertex.size=30)
+plot(g)
 
 communities_gn <- cluster_edge_betweenness(g)
+print(communities_gn)
 print(membership(communities_gn))
-
-plot(communities_gn, g, vertex.size=30)
+plot(communities_gn, g)
 
 cliques <- cliques(g, min=3, max=3)
 print(cliques)
